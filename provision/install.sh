@@ -12,3 +12,7 @@ if ! rpm -qa | grep -q "^epel-release-[0-9]" ; then
   yum -d 1 -e 0 -y install epel-release
 fi
 
+## gem breaker
+gem install bundler
+cd /vagrant || return
+bundle install --path vendor/bundle
