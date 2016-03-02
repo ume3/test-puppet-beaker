@@ -5,3 +5,10 @@
 if [ ! "$(rpm -q make)" ]; then
   yum install -d 1 -e 0 -y make gcc gcc-c++ libxml1-devel libxslt-devel ruby-devel
 fi
+
+## epel
+if ! rpm -qa | grep -q "^epel-release-[0-9]" ; then
+  yum -d 1 -e 0 -y update ca-certificates
+  yum -d 1 -e 0 -y install epel-release
+fi
+
